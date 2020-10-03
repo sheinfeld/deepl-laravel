@@ -2,7 +2,7 @@
 
 namespace Sheinfeld\DeepL\Laravel;
 
-use Sheinfeld\DeepL\Api\DeepLApiClient;
+use JorisvanW\DeepL\Api\DeepLApiClient;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container\Container;
 use Laravel\Lumen\Application as LumenApplication;

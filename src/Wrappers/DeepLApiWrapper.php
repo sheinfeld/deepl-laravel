@@ -2,10 +2,10 @@
 
 namespace Sheinfeld\DeepL\Laravel\Wrappers;
 
-use Sheinfeld\DeepL\Api\DeepLApiClient;
+use JorisvanW\DeepL\Api\DeepLApiClient;
 use Illuminate\Contracts\Config\Repository;
-use Sheinfeld\DeepL\Api\Exceptions\ApiException;
-use Sheinfeld\DeepL\Api\Cons\Translate as TranslateType;
+use JorisvanW\DeepL\Api\Exceptions\ApiException;
+use JorisvanW\DeepL\Api\Cons\Translate as TranslateType;
 
 /**
  * Class DeepLApiWrapper.
@@ -28,7 +28,7 @@ class DeepLApiWrapper
      * @param Repository     $config
      * @param DeepLApiClient $client
      *
-     * @throws \Sheinfeld\DeepL\Api\Exceptions\ApiExcesption
+     * @throws \JorisvanW\DeepL\Api\Exceptions\ApiExcesption
      * @return void
      */
     public function __construct(Repository $config, DeepLApiClient $client)
@@ -66,7 +66,7 @@ class DeepLApiWrapper
     }
 
     /**
-     * @return \Sheinfeld\DeepL\Api\Endpoints\UsageEndpoint
+     * @return \JorisvanW\DeepL\Api\Endpoints\UsageEndpoint
      */
     public function usage()
     {
@@ -74,7 +74,7 @@ class DeepLApiWrapper
     }
 
     /**
-     * @return \Sheinfeld\DeepL\Api\Endpoints\TranslateEndpoint
+     * @return \JorisvanW\DeepL\Api\Endpoints\TranslateEndpoint
      */
     public function translations()
     {
@@ -82,15 +82,15 @@ class DeepLApiWrapper
     }
 
     /**
-     * Translate a collection of translations with \Sheinfeld\DeepL\Api\Resources\Translate items from DeepL.
+     * Translate a collection of translations with \JorisvanW\DeepL\Api\Resources\Translate items from DeepL.
      *
      * @param string $text
      * @param string $to
      * @param string $from
      * @param array  $options
      *
-     * @return \Sheinfeld\DeepL\Api\Resources\BaseResource|\Sheinfeld\DeepL\Api\Resources\Translate
-     * @throws \Sheinfeld\DeepL\Api\Exceptions\ApiException
+     * @return \JorisvanW\DeepL\Api\Resources\BaseResource|\JorisvanW\DeepL\Api\Resources\Translate
+     * @throws \JorisvanW\DeepL\Api\Exceptions\ApiException
      */
     public function translate(
         $text,
@@ -134,7 +134,7 @@ class DeepLApiWrapper
      * @param array  $options
      *
      * @return string
-     * @throws \Sheinfeld\DeepL\Api\Exceptions\ApiException
+     * @throws \JorisvanW\DeepL\Api\Exceptions\ApiException
      */
     public function translateText(
         $text,
