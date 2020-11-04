@@ -101,7 +101,7 @@ class DeepLApiWrapper
         $regexTemp = [];
 
         // Prevent translating the :keys (and make it cheaper)
-        if (!array_get($options, 'translate_keys', false) && preg_match_all('~(:\w+)~', $text, $matches, PREG_PATTERN_ORDER)) {
+        if (!Arr::get($options, 'translate_keys', false) && preg_match_all('~(:\w+)~', $text, $matches, PREG_PATTERN_ORDER)) {
             foreach ($matches[1] as $key => $word) {
                 $regexTemp["_{$key}"] = $word;
             }
@@ -157,14 +157,14 @@ class DeepLApiWrapper
         $to   = [];
         $from = [];
 
-        if (!empty($trims = array_get($this->config->get('deepl'), 'trim.space_before_char', []))) {
+        if (!empty($trims = Arr::get($this->config->get('deepl'), 'trim.space_before_char', []))) {
             $from[] = '/\s([' . implode('|', $trims) . '])\s/';
             $to[]   = '${1} ';
             $from[] = '/\s([' . implode('|', $trims) . '])$/';
             $to[]   = '${1}';
         }
 
-        if (!empty($trims = array_get($this->config->get('deepl'), 'trim.spaces_between_char', []))) {
+        if (!empty($trims = Arr::get($this->config->get('deepl'), 'trim.spaces_between_char', []))) {
             foreach ($trims as $trim) {
                 $to[]   = $trim . '${1}' . $trim;
                 $from[] = "/{$trim}\s(.*?)\s{$trim}/";
