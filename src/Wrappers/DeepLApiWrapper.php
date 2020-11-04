@@ -6,6 +6,7 @@ use JorisvanW\DeepL\Api\DeepLApiClient;
 use Illuminate\Contracts\Config\Repository;
 use JorisvanW\DeepL\Api\Exceptions\ApiException;
 use JorisvanW\DeepL\Api\Cons\Translate as TranslateType;
+use Illuminate\Support\Arr;
 
 /**
  * Class DeepLApiWrapper.
